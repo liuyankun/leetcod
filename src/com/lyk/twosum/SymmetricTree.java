@@ -1,5 +1,8 @@
 package com.lyk.twosum;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SymmetricTree {
 
 	public class TreeNode {
@@ -18,11 +21,12 @@ public class SymmetricTree {
 	}
 
 	public boolean isSymmetric(TreeNode root) {
-		if(root == null) {
+		Queue<TreeNode> queue = new LinkedList<>();
+		if(root == null||(root.left==null&& root.right==null)) {
 			return true;
-		}else {
-			
 		}
+		
+		
 		return false;
 	}
 }
