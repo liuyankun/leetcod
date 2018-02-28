@@ -10,11 +10,13 @@ public class LinkedListCycle {
 	}
 
 	public boolean hasCycle(ListNode head) {
-		if(head == null) return false;
-		ListNode nextNode = head.next;
-		while(nextNode!=null) {
-			if(nextNode==head) return true;
+		ListNode current = head;
+		ListNode nextNode = head;
+		while(current!=null) {
+			if(current.next==head) return true;
 			nextNode = nextNode.next;
+			current.next = head;
+			current = nextNode;
 		}
 		return false;
 	}
