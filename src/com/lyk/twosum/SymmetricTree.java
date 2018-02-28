@@ -16,16 +16,10 @@ public class SymmetricTree {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public boolean isSymmetric(TreeNode root) {
-		Queue<TreeNode> queue = new LinkedList<>();
-		if(root == null||(root.left==null&& root.right==null)) {
-			return true;
-		}
-
 		return root==null || isSymmetricHelp(root.left,root.right);
 	}
 	
