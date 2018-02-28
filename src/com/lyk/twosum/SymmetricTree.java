@@ -18,11 +18,16 @@ public class SymmetricTree {
 	}
 
 	public boolean isSymmetric(TreeNode root) {
-		if(root == null) {
-			return true;
-		}else {
-			
+		return root==null || isSymmetricHelp(root.left,root.right);
+	}
+	
+	public boolean isSymmetricHelp(TreeNode left,TreeNode right) {
+		if(left==null || right == null) {
+			return left == right;
 		}
-		return false;
+		if(left.val != right.val) {
+			return false;
+		}
+		return isSymmetricHelp(left.left,right.right)&&isSymmetricHelp(left.right,right.left);
 	}
 }
