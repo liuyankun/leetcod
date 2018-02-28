@@ -37,7 +37,10 @@ public class MinStack {
 
 	public void pop() {
 		stack.pop();
-		if(stack.isEmpty()) return;
+		if(stack.isEmpty()) {
+			minimun = 2147483647;
+			return;
+		}
 		minimun = stack.peek();
 		for(int i=0;i<stack.size();i++) {
 			int current = stack.get(i);
