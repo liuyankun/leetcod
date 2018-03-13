@@ -23,7 +23,7 @@ public class MinStack {
 		System.out.println(stack.getMin());
 	}
 	
-	private int minimun = 2147483647;
+	private int minimun = Integer.MAX_VALUE;
 	private Stack<Integer> stack ;
 
 	public MinStack() {
@@ -31,21 +31,22 @@ public class MinStack {
 	}
 
 	public void push(int x) {
+		
+		if(x<=minimun) {
+			stack.push(minimun);
+			minimun =x;
+		}
 		stack.push(x);
-		if(x<minimun) minimun =x;
 	}
 
 	public void pop() {
-		stack.pop();
-		if(stack.isEmpty()) {
-			minimun = 2147483647;
-			return;
+		if(stack.peek()==minimun) {
+			stack.pop();
+			minimun = stack.pop();
+		}else {
+			stack.pop();
 		}
-		minimun = stack.peek();
-		for(int i=0;i<stack.size();i++) {
-			int current = stack.get(i);
-			if(current<minimun) minimun =current;
-		}
+		
 	}
 
 	public int top() {
